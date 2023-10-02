@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post("/update_photo/:photo_id", controller: "photo", action: "update_photo")
   get("/delete_photo/:photo_id", controller: "photo", action: "delete_photo")
   
+  post("/add_comment", controller: "photo", action: "add_comment")
 end
