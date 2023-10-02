@@ -1,6 +1,7 @@
 class PhotoController < ApplicationController
 
   def photo_list
+    @photos = Photo.order(created_at: :desc)
     render({:template => "photo/index" })
   end
 

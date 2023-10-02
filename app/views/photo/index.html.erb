@@ -37,7 +37,7 @@
   </tr>
 
 
-  <% Photo.order(created_at: :desc).each{|photo|%>
+  <% @photos.each{|photo|%>
     <tr>
       <td><img src=<%= photo.image %> height="300px"></td>
       <td><%= photo.caption %></td>
