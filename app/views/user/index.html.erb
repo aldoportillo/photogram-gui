@@ -23,19 +23,11 @@
   </tr>
 
 
+  <% User.order(:username).each{ |user| %>
     <tr>
-      <td>
-        121
-      </td>
-
-      <td>
-        aldo
-      </td>
-
-      <td>
-        <a href="/users/aldo">
-          Show details
-        </a>
-      </td>
+      <td><%= user.id %></td>
+      <td><%= user.username %></td>
+      <td><a href="/users/<%=user.username%>">Show details</a></td>
     </tr>
+  <% } %>
 </tbody></table>
