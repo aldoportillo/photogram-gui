@@ -57,5 +57,21 @@ class PhotoController < ApplicationController
     redirect_to("/photos", { :notice => "Photo deleted successfully." })
 
   end
+
+  def add_comment
+
+    comment = Comment.new
+    comment.photo_id = params.fetch("input_photo_id")
+    comment.author_id = params.fetch("input_author_id")
+    comment.body = params.fetch("input_comment")
+
+    if comment.valid?
+      comment.save
+      redirect_to("/photos/#{comment.photo_id}", { :notice => "Comment posted successfully." })
+    else
+      redirect_to("/users", { :notice => "Photo failed to post comment successfully." })
+    end
+
+  end
   
 end
