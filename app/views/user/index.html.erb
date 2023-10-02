@@ -23,7 +23,7 @@
   </tr>
 
 
-  <% User.order(:username).each{ |user| %>
+  <% @users.each{ |user| %>
     <tr>
       <td><%= user.id %></td>
       <td><%= user.username %></td>
