@@ -6,6 +6,13 @@ class PhotoController < ApplicationController
   end
 
   def photo_info
+
+    @photo_id = params.fetch("photo_id")
+
+    @photo = Photo.where(:id => @photo_id).at(0)
+
+    @comments = @photo.comments
+
     render({:template => "photo/show"})
   end
   
