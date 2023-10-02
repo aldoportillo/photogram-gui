@@ -15,5 +15,27 @@ class PhotoController < ApplicationController
 
     render({:template => "photo/show"})
   end
+
+  def new_photo
+    new_photo = Photo.new
+
+    new_photo.image = params.fetch("input_image")
+    new_photo.caption = params.fetch("input_caption")
+    new_photo.owner_id = params.fetch("input_owner_id")
+
+    if new_photo.valid?
+      new_photo.save
+      redirect_to("/photos/#{new_photo.id}", { :notice => "Photo posted successfully." })
+    else
+      redirect_to("/users", { :notice => "Photo failed to post successfully." })
+    end
+
+  end
+
+  def update_photo
+  end
+
+  def delete_photo
+  end
   
 end
