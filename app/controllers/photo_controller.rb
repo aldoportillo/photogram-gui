@@ -33,6 +33,18 @@ class PhotoController < ApplicationController
   end
 
   def update_photo
+    photo_id =  params.fetch("photo_id")
+    photo = Photo.where(:id => photo_id ).at(0)
+
+    photo.image = params.fetch("input_image")
+    photo.caption = params.fetch("input_caption")
+
+    if photo.valid?
+      photo.save
+      redirect_to("/photos/#{photo_id}", { :notice => "Photo updated successfully." })
+    else
+      redirect_to("/users", { :notice => "Photo failed to update successfully." })
+    end
   end
 
   def delete_photo
