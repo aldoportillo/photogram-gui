@@ -48,6 +48,14 @@ class PhotoController < ApplicationController
   end
 
   def delete_photo
+    photo_id = params.fetch("photo_id")
+
+    photo = Photo.where(:id => photo_id ).at(0)
+
+    photo.destroy
+
+    redirect_to("/photos", { :notice => "Photo deleted successfully." })
+
   end
   
 end
