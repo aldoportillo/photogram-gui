@@ -1,17 +1,14 @@
 class UserController < ApplicationController
 
   def home
-    render({ :template => "user/index.html.erb"})
+    render({:template => "user/index"})
   end
 
-  def users_list
-
-    render({ :template => "user/index.html.erb"})
+  def user_list
+    render({:template => "user/index" })
   end
 
   def user_profile
-
-
-    render({ :template => "user/show.html.erb"})
-
+    render({:template => "user/show"})
   end
+end
